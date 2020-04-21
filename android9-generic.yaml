@@ -20,6 +20,11 @@ actions:
     description: Adding Android 8/9 packages
     script: scripts/add-android8-repos.sh
 
+  - action: run
+    chroot: true
+    description: Set up /etc/writable links for timezone and friends
+    script: scripts/etc-writable.sh
+
   - action: overlay
     source: android9/overlay
     description: Adding Android 9 base specific overlay
