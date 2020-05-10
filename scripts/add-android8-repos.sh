@@ -50,6 +50,16 @@ dpkg -i /root/hfd/*.deb
 rm -rf /root/hfd
 apt-mark hold hfd-service-tools hfd-service libqt5feedback5-hfd qml-module-hfd
 
+# custom biometryd
+mkdir -p /root/biometryd
+wget https://build.lolinet.com/file/biometryd/biometryd-bin_0.0.3+ubports_armhf.deb -P /root/biometryd/
+wget https://build.lolinet.com/file/biometryd/libbiometryd1_0.0.3+ubports_armhf.deb -P /root/biometryd/
+wget https://build.lolinet.com/file/biometryd/qml-module-biometryd_0.0.3+ubports_armhf.deb -P /root/biometryd/
+
+dpkg -i /root/biometryd/*.deb
+rm -rf /root/biometryd
+apt-mark hold biometryd-bin libbiometryd1 qml-module-biometryd
+
 # Restore symlink
 rm /etc/resolv.conf
 mv /etc/resolv2.conf /etc/resolv.conf
